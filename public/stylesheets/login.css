@@ -1,0 +1,183 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Nunito', serif !important;
+    font-size: 10pt !important;
+}
+
+.navbar-brand {
+    font-weight: 800;
+}
+
+.nav-link:hover {
+    border-bottom: 1px solid white;
+    padding-bottom: 7px;
+}
+
+.form-inline {
+    font-size: 10pt !important;
+}
+
+.container {
+    padding: 20px 0px;
+}
+
+.footer-title {
+    font-size: 10pt !important;
+    font-weight: 700;
+    list-style-type: none;
+}
+
+.bullets {
+    text-decoration: none;
+    font-weight: 200;
+    padding: 2px 4px;
+    margin-bottom: 2px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #d9d9d9;
+}
+
+.footer-link:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.login-area {
+    margin: 50px 200px !important; 
+    position: relative;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 0 6px 36px 0 rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+    background-color: white;
+    margin: 0;
+}
+
+.login-title {
+    font-weight: 600;
+    font-size: 16pt;
+    color: rgb(100, 100, 100);
+    margin: 40px 0px 20px 25px;
+}
+
+.login-title-name {
+    font-weight: 800;
+    color: black;
+    display: inline-block;
+}
+
+.login-box {
+    margin: 0px 20px;
+    width: 90%;
+    border-radius: 5px;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
+
+.login-phone {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.075);
+    padding: 20px;
+    font-weight: 600;
+}
+
+.login-password {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: 1px solid rgba(100, 100, 100, 0.075);
+    padding: 20px;
+    font-weight: 600;
+}
+
+#inputTel:focus {
+    border-left: 3px solid black;
+    box-shadow: none;
+    font-weight: 300;
+}
+
+#inputPassword:focus {
+    border-left: 3px solid black;
+    box-shadow: none;
+    font-weight: 300;
+}
+
+#inputTel {
+    border-radius: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 0px;
+    padding: 20px;
+    height: auto;
+}
+
+#inputPassword {
+    border-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 0px;
+    padding: 20px;
+    height: auto;
+}
+
+.addin {
+    margin: 20px 20px;
+    width: 90%;
+}
+
+.forgot-password {
+    font-weight: 600;
+    font-size: 12pt;
+    color: #006dec;
+}
+
+.forgot-password:hover {
+    text-decoration: none;
+    font-weight: 700;
+    color: #006dec;
+}
+
+.register {
+    font-weight: 600;
+    font-size: 12pt;
+    color: #006dec;
+    float: right;
+}
+
+.register:hover {
+    text-decoration: none;
+    font-weight: 700;
+    color: #006dec;
+}
+
+.btnatr {
+    margin: 20px;
+    margin-top: 0px;
+    background-color: black !important;
+    border: none !important;
+}
+
+.btnatr:hover {
+    font-weight: 800;
+}
+
+.login-btn {
+    padding: 3px 20px;
+}
+
+.content-img {
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.warning-msg {
+    color: red;
+    font-style: italic;
+}

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/header.ejs %>
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  <title> NULL Store - Trang chủ </title>
+</head>
+
+<body>
+  <!-- Navigation bar-->
+  <% include ../partials/nav.ejs %>
+
+  <!-- Body detail-->
+  <div class="container" style="padding-bottom: 5px;">
+    <div class="row">
+
+      <!-- Detail left-->
+      <div class="col-lg-3">
+        <div class="row space-detail-left">
+          <div class="boxshadow col-md-10 py-3">
+            <li class="category"> Danh mục </li>
+            <li class="category list">
+              <a href="/apple" class="category-link"> Apple </a>
+            </li>
+            <li class="category list">
+              <a href="/samsung" class="category-link"> Samsung </a>
+            </li>
+            <li class="category list">
+              <a href="/sony" class="category-link"> Sony </a>
+            </li>
+            <li class="category list">
+              <a href="/oppo" class="category-link"> Oppo </a>
+            </li>
+            <li class="category list">
+              <a href="/xiaomi" class="category-link"> XiaoMi </a>
+            </li>
+            <li class="category list">
+              <a href="/huawei" class="category-link"> Huawei </a>
+            </li>
+          </div>
+        </div>
+        <!-- <div class="row space-detail-left">
+          <div class="boxshadow col-md-10 py-3">
+            <li class="hot-sale"> Khuyến mãi hot hôm nay </li>
+            <a href="#">
+              <img class="sale-image" src="/img/sale-product/iPhone/1.png" alt="iPhone XS Max 256GB">
+            </a>
+            <li class="sale-nameproduct pb-2">
+              <a href="#" class="nameproduct"> iPhone XS Max 256GB </a>
+            </li>
+            <li class="sale-nameproduct">
+              <div class="detail-sale"> Giảm 10% </div>
+              <div class="price-sale"> 27.000.000 đ </div>
+            </li>
+          </div>
+        </div>
+      <div class="row space-detail-left">
+          <div class="boxshadow col-md-10 py-3">
+            <li class="hot-sale"> Khuyến mãi hot hôm nay </li>
+            <a href="#">
+              <img class="sale-image" src="/img/sale-product/XiaoMi/1.png" alt="XiaoMi Mi 8 Pro">
+            </a>
+            <li class="sale-nameproduct pb-2">
+              <a href="#" class="nameproduct"> XiaoMi Mi 8 Pro </a>
+            </li>
+            <li class="sale-nameproduct">
+              <div class="detail-sale"> Giảm 20% </div>
+              <div class="price-sale"> 14.000.000 đ </div>
+            </li>
+          </div>
+        </div>  -->
+      </div>
+
+      <!-- Detail right-->
+      <div class="col-lg-9">
+
+        <!-- Also menu -->
+        <div class="row space-detail-right">
+          <% if (topbuttonclick === 2) { %>
+          <div class="top-boxshadow col-md-3">
+            <li class="topbox">
+              <a href="/sanphammoinhat" id="newest" class="topname"> Sản phẩm mới nhất </a>
+            </li>
+          </div>
+          <div class="top-boxshadow active-topbox col-md-3">
+            <li class="topbox">
+              <a href="/sanphambanchay" id="soldest" class="topname active-now"> Sản phẩm bán chạy nhất </a>
+            </li>
+          </div>
+          <div class="top-boxshadow col-md-3">
+            <li class="topbox">
+              <a href="/sanphamxemnhieu" id="watchest" class="topname"> Sản phẩm xem nhiều nhất </a>
+            </li>
+          </div>
+          <% } else { if (topbuttonclick === 3) { %>
+          <div class="top-boxshadow col-md-3">
+            <li class="topbox">
+              <a href="/sanphammoinhat" id="newest" class="topname"> Sản phẩm mới nhất </a>
+            </li>
+          </div>
+          <div class="top-boxshadow col-md-3">
+            <li class="topbox">
+              <a href="/sanphambanchay" id="soldest" class="topname"> Sản phẩm bán chạy nhất </a>
+            </li>
+          </div>
+          <div class="top-boxshadow active-topbox col-md-3">
+            <li class="topbox">
+              <a href="/sanphamxemnhieu" id="watchest" class="topname active-now"> Sản phẩm xem nhiều nhất </a>
+            </li>
+          </div>
+          <% } else { %>
+          <div class="top-boxshadow active-topbox col-md-3">
+            <li class="topbox">
+              <a href="/sanphammoinhat" id="newest" class="topname active-now"> Sản phẩm mới nhất </a>
+            </li>
+          </div>
+          <div class="top-boxshadow col-md-3">
+            <li class="topbox">
+              <a href="/sanphambanchay" id="soldest" class="topname"> Sản phẩm bán chạy nhất </a>
+            </li>
+          </div>
+          <div class="top-boxshadow col-md-3">
+            <li class="topbox">
+              <a href="/sanphamxemnhieu" id="watchest" class="topname"> Sản phẩm xem nhiều nhất </a>
+            </li>
+          </div>
+          <% }} %>
+        </div>
+        <div class="row space-detail-right">
+          <div class="list-product col-md-9"> Danh sách sản phẩm </div>
+          <div class="dropdown col-md-3">
+            <button class="btn btn-secondary btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownArrangeButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Xếp theo ...
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownArrangeButton">
+              <h6 class="dropdown-header"> Xếp theo ... </h6>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/sanphammoinhat"> Xếp theo thời gian </a>
+              <a class="dropdown-item" href="/sanphamtheogiacaothap"> Xếp theo giá cao -> thấp </a>
+              <a class="dropdown-item" href="/sanphamtheogiathapcao"> Xếp theo giá thấp -> cao </a>
+              <a class="dropdown-item" href="/sanphamxemnhieu"> Xếp theo độ yêu thích </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product inlist -->
+        <div class="row space-detail-right">
+          <!-- <div class="test"> -->
+          <!-- <div class="info-product-inlist" style="position: relative; z-index: 3; display: none;">
+                            <li class="product-inlist-detail">
+                                Bảo hành chính hãng 1 năm
+                            </li>
+                            <li class="product-inlist-detail">
+                                Trả góp 0%
+                            </li>
+                            <li class="product-inlist-detail">
+                                1 đổi 1 nếu có lỗi
+                            </li>
+                            <li class="product-inlist-detail">
+                                Cấu hình
+                            </li>
+                            <li class="product-inlist-detail">
+                                Màn hình: 5.8 inches
+                            </li>
+                            <li class="product-inlist-detail">
+                                CPU: 2x2.39 GHz
+                            </li>
+                        </div> -->
+
+
+
+          <!-- Product inlist -->
+          <%sanpham.forEach(function(i){%>
+          <div class="col-md-3 prodMain">
+            <div class="product-inlist">
+              <a href="/detail/<%=i.HangSanXuat%>/<%=i.ID_SANPHAM%>">
+                <img class="product-inlist-image" src="/img/product/<%=i.HangSanXuat%>/<%=i.ID_SANPHAM%>.png" alt="<%=i.TenSanPham%>">
+              </a>
+              <li class="product-inlist-detail record pb-1">
+                <!-- <a href="#" class="product-inlist-detail"> iPhone XS 128GB Đen </a> -->
+                <a href="#" class="product-inlist-detail this-productInlistDetail">
+                  <%=i.TenSanPham%> <a style="font-size: 10pt; font-weight: 400; color: rgb(131, 135, 158);"> (
+                    <%=i.DungLuong%>) </a> </a>
+              </li>
+              <li class="product-inlist-detail">
+                <div style="color: black;">
+                  <%= i.Money %> đ </div>
+              </li>
+            </div>
+
+            <a class="prodHover" href="/detail/<%=i.HangSanXuat%>/<%=i.ID_SANPHAM%>">
+              <li class="product-inlist-detail pt-1 pb-1" style="font-size: 14pt; font-weight: 700; color: blue; text-align: center;">
+                <%=i.TenSanPham%>
+                <%=i.DungLuong%>
+              </li>
+              <li class="product-inlist-detail pb-2" style="color: rgb(0, 0, 0); font-size: 12pt; font-weight: 900; text-align: center;">
+                <%= i.Money %>
+              </li>
+              <li class="product-inlist-detail pb-1" style="padding: 0px 5px;">
+                - Bảo hành chính hãng 1 năm
+              </li>
+              <li class="product-inlist-detail pb-1" style="padding: 0px 5px;">
+                - Đầy đủ phụ kiện kèm theo
+              </li>
+              <li class="product-inlist-detail pb-1" style="padding: 0px 5px;">
+                - Đổi trả miễn phí 7 ngày đầu
+              </li>
+              <li class="product-inlist-detail pb-1" style="padding: 0px 5px;">
+                - Nhận sản phẩm trong 48h
+              </li>
+              <li class="product-inlist-detail pt-2 pb-1" style="font-weight: 900; color: black; padding: 0px 5px; text-align: left;">
+                Cấu hình
+              </li>
+              <li class="product-inlist-detail pb-1" style="padding: 0px 5px; text-align: left;">
+                - Màn hình 5.8 inches
+              </li>
+              <li class="product-inlist-detail pb-1" style="padding: 0px 5px; text-align: left;">
+                - CPU 2x2.39 GHz
+              </li>
+            </a>
+          </div>
+
+
+          <%});%>
+        </div>
+
+
+
+        <!-- Page transition -->
+        <div class="row space-detail-right" style="text-align: center;">
+          <div class="col-md-12">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Footer -->
+  <% include ../partials/footer.ejs %>
+
+  <!-- BootStrap 4.1.3 -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- <script src="script/function.js"></script> -->
+
+  <script>
+    $(document).ready(function () {
+      $("#nav-phone").css("color", "white");
+
+      $(".top-boxshadow").hover(function () {
+        if (!$(this).hasClass("active-topbox")) {
+          $(this).css("background-color", "black");
+          $(this).children(".topbox").children(".topname").css("color", "white");
+          $(this).children(".topbox").children(".topname").css("font-weight", "800");
+        }
+      }, function () {
+        if (!$(this).hasClass("active-topbox")) {
+          $(this).css("background-color", "white");
+          $(this).children(".topbox").children(".topname").css("color", "black");
+          $(this).children(".topbox").children(".topname").css("font-weight", "600");
+        }
+      });
+
+      $(".topname").click(function () {
+        $("#newest").removeClass("active-now");
+        $("#soldest").removeClass("active-now");
+        $("#watchest").removeClass("active-now");
+        $("#newest").parent(".topbox").parent(".top-boxshadow").removeClass("active-topbox");
+        $("#soldest").parent(".topbox").parent(".top-boxshadow").removeClass("active-topbox");
+        $("#watchest").parent(".topbox").parent(".top-boxshadow").removeClass("active-topbox");
+        $(this).addClass("active-now");
+        $(this).parent(".topbox").parent(".top-boxshadow").addClass("active-topbox");
+      });
+
+      $(".this-productInlist").hover(function () {
+        $(this).children(".record").children(".this-productInlistDetail").css("color", "blue");
+      }, function () {
+        $(this).children(".record").children(".this-productInlistDetail").css("color", "rgb(100, 100, 100)");
+      });
+    });
+
+      // $(".test").hover(
+      //     function () {
+      //         $(this).parent("div").find(".info-product-inlist").show();
+      //     },
+      //     function () {
+      //         $(this).parent("div").find(".info-product-inlist").hide();
+      //     }
+      // )
+
+    /*$("#001").hover(function () {
+        $(this).html(`<div class="info-product-inlist">
+                    <li class="product-inlist-detail">
+                        Bảo hành chính hãng 1 năm
+                    </li>
+                    <li class="product-inlist-detail">
+                        Trả góp 0%
+                    </li>
+                    <li class="product-inlist-detail">
+                        1 đổi 1 nếu có lỗi
+                    </li>
+                    <li class="product-inlist-detail">
+                        Cấu hình
+                    </li>
+                    <li class="product-inlist-detail">
+                        Màn hình: 5.8 inches
+                    </li>
+                    <li class="product-inlist-detail">
+                        CPU: 2x2.39 GHz
+                    </li>
+                </div>`);
+    }, function () {
+
+    });*/
+  </script>
+  <!-- arrow function -->
+</body>
+
+</html>

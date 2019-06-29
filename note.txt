@@ -1,0 +1,11 @@
+create basic login page
+create basic register page
+how a loged account to be kept
+create user database
+pop up a notification
+password hostinger 000webhost:
+2TzKH2nfMqDTxpuQwQHh
+
+database account:
+u: null
+p: null@hcmus

@@ -1,0 +1,5 @@
+CREATE TABLE respond(
+    ID INT NOT NULL,
+    CONTENT NVARCHAR(100),
+    PRIMARY KEY (ID)
+)

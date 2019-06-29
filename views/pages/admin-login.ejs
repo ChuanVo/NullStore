@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/header.ejs %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/admin-login.css">
+    <title> NULL Store - Admin Login </title>
+</head>
+
+<body>
+    <!-- Body detail-->
+    <div class="row container-fluid">
+        <div class="col-md-12">
+            <div class="login-area row">
+                <div class="col-md-5">
+                    <div class="login-title">
+                        Chào BOSS đến với trang quản lý của website bán hàng <p class="login-title-name">
+                            NULL Store </p>
+                    </div>
+                    <form method="POST" action="/admin/login-verification" id="login">
+                        <div class="login-box">
+                            <input name="uname" type="text" class="form-control login-name" id="inputName" placeholder="Tên đăng nhập"
+                                required>
+                            <input name="pwd" type="password" class="form-control login-password" id="inputPassword"
+                                placeholder="Mật khẩu" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btnatr">
+                            <div class="login-btn">Đăng nhập</div>
+                        </button>
+                    </form>
+                </div>
+                <div class="col-md-7">
+                    <img class="content-img" src="/img/background/login_content.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

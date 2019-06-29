@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/header.ejs %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/detail-product.css">
+    <title> NULL Store - Chi tiết sản phẩm </title>
+</head>
+
+<body>
+    <!-- Navigation bar-->
+    <% include ../partials/nav.ejs %>
+
+    <!-- Body detail-->
+
+    <!-- Link of Product -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="link-of-product">
+                    Điện thoại
+                    <i class="fas fa-angle-left px-1"></i>
+                    <%=chitiet[0].HangSanXuat%>
+                    <i class="fas fa-angle-left px-1"></i>
+                    <span style="color: blue;">
+                        <%=chitiet[0].TenSanPham%> </span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail of Product (Picture and General Information) -->
+    <div class="dop">
+        <div class="container" style="padding-top: 5px !important; padding-bottom: 5px !important;">
+            <div class="row detail-of-product">
+                <div class="col-md-3" style="text-align: center;">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators" style="margin-bottom: 10px;">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item item active">
+                                <img class="carousel-img" src="/img/product/<%=chitiet[0].HangSanXuat%>/<%=chitiet[0].ID_SANPHAM%>.png">
+                            </div>
+                            <div class="carousel-item item">
+                                <img class="carousel-img" src="/img/product/<%=chitiet[0].HangSanXuat%>/<%=chitiet[0].ID_SANPHAM%>-2.png">
+                            </div>
+                            <div class="carousel-item item">
+                                <img class="carousel-img" src="/img/product/<%=chitiet[0].HangSanXuat%>/<%=chitiet[0].ID_SANPHAM%>-3.png">
+                            </div>
+                            <div class="carousel-item item">
+                                <img class="carousel-img" src="/img/product/<%=chitiet[0].HangSanXuat%>/<%=chitiet[0].ID_SANPHAM%>-4.png">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fas fa-chevron-left"
+                                style="color: black;"></i></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"><i class="fas fa-chevron-right"
+                                style="color: black;"></i></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col-md-9 dop-info">
+                    <div class="row">
+                        <div class="col-md-5 dop-info-title">
+                            <%=chitiet[0].TenSanPham%>
+                        </div>
+                        <div class="col-md-5 dop-info-rank">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="dop-info-note"> Chính hãng
+                        <%=chitiet[0].HangSanXuat%> - mới 100% </div>
+                    <div class="dop-info-term"> <i class="fas fa-check dop-info-term-icon"></i> Bảo hành 1 năm </div>
+                    <div class="dop-info-term"> <i class="fas fa-check dop-info-term-icon"></i> Đầy đủ phụ kiện kèm
+                        theo </div>
+                    <div class="dop-info-term"> <i class="fas fa-check dop-info-term-icon"></i> Đổi trả miễn phí 7 ngày
+                        đầu </div>
+                    <div class="dop-info-term"> <i class="fas fa-check dop-info-term-icon"></i> Nhận sản phẩm trong 48h
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contents -->
+    <div class="container">
+        <div class="row">
+
+            <!-- Detail left-->
+            <div class="col-md-8">
+                <div class="boxborder space-detail-left">
+                    <section id="tabs">
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <nav>
+                                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                        <a class="nav-item nav-link active col-md-3" id="nav-contenttext-tab"
+                                            data-toggle="tab" href="#nav-contenttext" role="tab" aria-controls="nav-contenttext"
+                                            aria-selected="true"> CHI TIẾT SẢN PHẨM </a>
+                                        <a class="nav-item nav-link col-md-3" id="nav-contenttech-tab" data-toggle="tab"
+                                            href="#nav-contenttech" role="tab" aria-controls="nav-contenttech"
+                                            aria-selected="false"> THÔNG SỐ KĨ THUẬT </a>
+                                    </div>
+                                </nav>
+                                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="nav-contenttext" role="tabpanel"
+                                        aria-labelledby="nav-contenttext-tab">
+                                        <!-- <%-chitiet[0].MoTa%> -->
+                                        <p> Samsung Galaxy A9 (2018) là chiếc smartphone đầu tiên trên thế giới có tới
+                                            4 camera chính. Với hệ thống camera thông minh, Galaxy A9 cho khả năng chụp
+                                            ảnh chuyên nghiệp và đẳng cấp </p>
+                                        <p> <strong> 4 camera sau, đem cả thế giới vào trong khung hình </strong>
+                                            Dễ dàng lưu giữ cả thế giới trong lòng bàn tay nhờ hệ thống 4 camera đỉnh
+                                            cao lần đầu tiên trong lịch sử smartphone. Mỗi camera có một sứ mệnh riêng
+                                            biệt, cho bạn những bức ảnh đẹp hoàn hảo ở mọi điều kiện. Bạn có thể chụp
+                                            đêm, chụp xóa phông, zoom quang học 2X, chụp ảnh góc siêu rộng… Mọi tinh
+                                            túy trong nhiếp ảnh smartphone đều được gói gọn trên Galaxy A9 (2018) </p>
+                                        <p> <strong> Tự tin thể hiện cá tính </strong>
+                                            Thiết kế đẹp mắt, kiểu dáng hiện đại và chất lượng hoàn thiện cao cấp giúp
+                                            Galaxy A9 không chỉ thời trang mà còn rất thoải mái khi cầm trên tay. Bạn
+                                            sẽ thể hiện cá tính của mình qua các phiên bản màu sắc đầy ấn tượng, nổi
+                                            bật sau lớp vỏ kính 3D độc đáo </p>
+                                        <p> <strong> Trải nghiệm niềm vui bất tận </strong>
+                                            Galaxy A9 sở hữu màn hình tuyệt vời kích thước lớn 6,3 inch độ phân giải
+                                            cao Full HD+ công nghệ Super AMOLED dạng vô cực. Đi cùng với đó là bộ vi xử
+                                            lý mạnh mẽ, 6GB RAM và 128GB bộ nhớ trong. Hãy làm những gì bạn thích vì
+                                            Samsung Galaxy A9 (2018) đáp ứng được tất cả yêu cầu của bạn </p>
+                                        <p> <strong> Sử dụng lâu hơn, sạc nhanh hơn </strong>
+                                            Viên pin Galaxy A9 có dung lượng rất cao 3800 mAh, đủ sức sử dụng trong
+                                            thời gian lên đến 2 ngày mới cần phải sạc. Hơn thế nữa bạn cũng không phải
+                                            đợi lâu khi sạc pin nhờ công nghệ sạc nhanh, cho phép bạn tiếp tục sử dụng
+                                            thêm cả buổi chỉ sau 30 phút sạc </p>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-contenttech" role="tabpanel" aria-labelledby="nav-contenttech-tab">
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Thiết kế </div>
+                                            <div class="col-md-8"> Độ mỏng 7.8mm - Trọng lượng 183g </div>
+                                        </div>
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Màn hình </div>
+                                            <div class="col-md-8"> Màn hình tràn viền Super AMOLED 6.3", Full HD+ </div>
+                                        </div>
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Bộ nhớ RAM </div>
+                                            <div class="col-md-8"> 6GB </div>
+                                        </div>
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Bộ nhớ ROM </div>
+                                            <div class="col-md-8"> 128GB </div>
+                                        </div>
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Camera trước </div>
+                                            <div class="col-md-8"> 24MP (F2.0) Tetracell </div>
+                                        </div>
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Camera sau </div>
+                                            <div class="col-md-8"> 8MP (F2.4) Siêu rộng 120° - 10MP (F2.4) Zoom 2x -
+                                                24MP (F1.7) Tetracell </div>
+                                        </div>
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Bộ xử lý </div>
+                                            <div class="col-md-8"> Snapdragon 660 - Octa-Core 2.2GHz </div>
+                                        </div>
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Khe cắm SIM </div>
+                                            <div class="col-md-8"> 2 Sim (Nano SIM) </div>
+                                        </div>
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Pin </div>
+                                            <div class="col-md-8"> 3,800 mAh siêu tiết kiện pin - USB Chuẩn C Sạc nhanh
+                                                siêu tốc </div>
+                                        </div>
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Hệ điều hành </div>
+                                            <div class="col-md-8"> Android 8.0 Oreo - Samsung Experience 9.0 </div>
+                                        </div>
+                                        <div class="row contenttech">
+                                            <div class="col-md-2 contenttech-title"> Bảo mật </div>
+                                            <div class="col-md-8"> Cảm biến vân tay 1 chạm - Bảo mật khuôn mặt </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- them -->
+            <!-- <div class="container"> -->
+
+            <!-- Detail right-->
+            <div class="col-md-4">
+                <form role="form">
+                    <div class="boxborder space-detail-right">
+                        <div class="row contentbuying">
+                            <div class="col-md-2 contentbuying-col"> Tổng cộng: </div>
+                            <div class="col-md-5 contentbuying-col totalprice" id="idSumMoney">
+                                <%=chitiet[0].Money%> đ</div>
+                            <% if (isSuccess === 1) { %>
+                            <input type="button" class="btn btn-primary col-md-5 button-buy" value="MUA NGAY"
+                                data-toggle="modal" data-target="#MuaNgayModal" onclick="onMuaNgay()">
+                            <% } else { %>
+                            <button type="button" class="btn btn-primary col-md-5 button-buy" data-toggle="modal"
+                                data-target="#yeuCauDangNhap">MUA
+                                NGAY</button>
+                            <% } %>
+
+                        </div>
+                        <label style="visibility: hidden" id="idMoney">
+                            <%=chitiet[0].GiaTien * (1 - chitiet[0].GIATRI_KM) %> </label>
+                        <div class="row contentparameter">
+                            <div class="col-md-12" style="padding: 0 !important;">
+                                <p id="contentparameter-detail"> CHI TIẾT </p>
+                                <!-- Tùy chọn số lượng -->
+                                <div class="row contentparameter-part">
+                                    <div class="col-md-4 parameter-title">
+                                        Số lượng:
+                                    </div>
+                                    <div class="col-md-3 parameter-value">
+                                        <input id="numProducts" class="form-control" type="number" name="quantity"
+                                            value="1" min="1" max="5" onchange="calcSumMoney()">
+                                    </div>
+                                </div>
+                                <!-- Tùy chọn màu sắc -->
+                                <div class="row contentparameter-part">
+                                    <div class="col-md-4 parameter-title">
+                                        Màu sắc:
+                                    </div>
+                                    <div class="col-md-3 form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="color" value="Đen" checked="true">
+                                        <img src="/img/color-product/black.png" class="parameter-icon">
+                                        <!-- <button type="button" name="color" class="btn btn-primary parameter-button">
+                                            
+                                        </button> -->
+                                    </div>
+                                    <div class="col-md-3 form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="color" value="Trắng">
+                                        <img src="/img/color-product/white.png" class="parameter-icon">
+                                        <!-- <button type="button" name="color" class="btn btn-primary parameter-button">
+                                            
+                                            Trắng
+                                        </button> -->
+                                    </div>
+                                </div>
+                                <!-- Tùy chọn dung lượng -->
+                                <div class="row contentparameter-part">
+                                    <div class="col-md-4 parameter-title">
+                                        Dung lượng:
+                                    </div>
+                                    <div class="col-md-3 parameter-value">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input DungLuong" type="radio" name="storage" id="inlineRadio1"
+                                                value="64GB" checked="true">
+                                            <label class="form-check-label form-text-size" for="inlineRadio1">
+                                                64GB </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 parameter-value">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input DungLuong" type="radio" name="storage" id="inlineRadio2"
+                                                value="128GB">
+                                            <label class="form-check-label form-text-size" for="inlineRadio2">
+                                                128GB </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row contentcashing">
+                            <div class="col-md-12" style="padding: 0 !important;">
+                                <div class="row contentcashing-part">
+                                    <div class="col-md-4 cashing-name">
+                                        Giá tiền:
+                                    </div>
+                                    <div class="col-md-8 cashing-value">
+                                        <%=chitiet[0].GiaTien%> đ
+                                    </div>
+                                </div>
+                                <div class="row contentcashing-part">
+                                    <div class="col-md-4 cashing-name">
+                                        Khuyến mãi:
+                                    </div>
+                                    <div class="col-md-8 cashing-value">
+                                        <%=chitiet[0].TEN_KM%>
+                                    </div>
+                                </div>
+                                <div class="row contentcashing-part">
+                                    <div class="col-md-4 cashing-name">
+                                        Phí giao hàng
+                                    </div>
+                                    <div class="col-md-8 cashing-value">
+                                        Miễn phí
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <%if (isSuccess === 1) {%>
+    <div class="modal" id="MuaNgayModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Xác nhận đơn hàng</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img class="carousel-img" src="/img/product/<%=chitiet[0].HangSanXuat%>/<%=chitiet[0].ID_SANPHAM%>.png">
+                        </div>
+                        <div class="col-sm-3">
+                            <label style="font-weight: bold">Tên sản phẩm:</label><br>
+                            <label style="font-weight: bold">Hãng SX:</label> <br>
+                            <label style="font-weight: bold">Màu sắc:</label><br>
+                            <label style="font-weight: bold">Dung lượng:</label><br>
+                            <label style="font-weight: bold">Số lượng:</label><br>
+                            <label style="font-weight: bold">Giá tiền:</label>
+                        </div>
+                        <div class="col-sm-5">
+                            <label id="idTenSanPham"><%- chitiet[0].TenSanPham %></label><br>
+                            <label id="idHSX"><%- chitiet[0].HangSanXuat %></label><br>
+                            <label id="idMauSau"></label><br>
+                            <label id="idDungLuong"></label><br>
+                            <label id="idSLSanPham"></label><br>
+                            <label id="idGiaTien"></label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <strong class="col-sm-3">Số điện thoại:</strong> <input id="idSoDienThoai" type="text" class="form-control col-sm-8"
+                            value="<%- user.PHONE %>" disabled>
+                    </div>
+                    <div class="row">
+                        <strong class="col-sm-3">Họ tên:</strong> <input type="text" class="form-control col-sm-8"
+                            value="<%- user.NAME %>" disabled>
+                    </div>
+                    <div class="row">
+                        <strong class="col-sm-3">Địa chỉ:</strong> <input type="text" class="form-control col-sm-8"
+                            value="<%- user.ADDRESS %>" disabled>
+                    </div>
+                    <div class="row">
+                        <strong class="col-sm-3">Email:</strong> <input type="text" class="form-control col-sm-8" value="<%- user.EMAIL %>"
+                            disabled>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="submitOrder()">Đặt hàng</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+    </div> 
+    <%}%>
+    </div>
+    </div>
+    <div class="modal" id="yeuCauDangNhap">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Yêu cầu đăng nhập</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Bạn phải <a href="/login">đăng nhập</a> để thực hiện mua hàng!
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <a class="btn btn-success" href="/login">Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <% include ../partials/footer.ejs %>
+
+    <!-- BootStrap 4.1.3 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".profile-link").hover(function () {
+                $(this).children(".nav-img").css("box-shadow", "0px 0px 10px 2px white");
+                $(this).children(".profile-text").css("border-bottom", "1px solid white");
+            }, function () {
+                $(this).children(".nav-img").css("box-shadow", "none");
+                $(this).children(".profile-text").css("border-bottom", "none");
+            });
+
+            // Activate Carousel
+            $(".carousel").carousel({ interval: 1000 });
+
+            // Enable Carousel Controls
+            $(".left").click(function () {
+                $("#myCarousel").carousel("prev");
+            });
+            $(".right").click(function () {
+                $("#myCarousel").carousel("next");
+            });
+        })
+
+        var numProducts = document.getElementById("numProducts");
+        document.getElementById("soluong").innerHTML = numProducts.value;
+
+        function calcSumMoney() {
+            var x = document.getElementById("idMoney");
+            var y = document.getElementById("numProducts").value;
+            document.getElementById("idSumMoney").innerHTML = x.innerHTML * y + " đ";
+        }
+
+        function onMuaNgay() {
+            var x = document.getElementById("idMoney").innerHTML;
+            var y = document.getElementById("numProducts").value;
+            var z = document.getElementsByName("storage");
+            z.forEach(function (element) {
+                if (element.checked === true) {
+                    document.getElementById("idDungLuong").innerHTML = element.defaultValue;
+                }
+            });
+            var c = document.getElementsByName("color");
+            c.forEach(function (element) {
+                if (element.checked === true) {
+                    document.getElementById("idMauSau").innerHTML = element.value;
+                }
+            });
+            document.getElementById("idSLSanPham").innerHTML = y;
+            document.getElementById("idGiaTien").innerHTML = y * x + " đồng";
+        }
+
+        function submitOrder() {
+            var x = document.getElementById("idMoney").innerHTML;
+            var y = document.getElementById("numProducts").value;
+            var soLuong = document.getElementById("idSLSanPham").innerHTML;
+            var giaTien = x * y;
+            var dungLuong = document.getElementById("idDungLuong").innerHTML;
+            var hangSanXuat = document.getElementById("idHSX").innerHTML;
+            var tenSP = document.getElementById("idTenSanPham").innerHTML;
+            $.post("/detail/submitOrder", {
+                SoLuong: soLuong,
+                GiaTien: giaTien,
+                DungLuong: dungLuong,
+                HangSanXuat: hangSanXuat,
+                TenSP: tenSP
+            }, function (result) {
+
+            });
+            alert("Đặt hàng thành công!");
+        }
+    </script>
+    <!-- arrow function -->
+</body>
+
+</html>
+
+<script>
+    data: [{
+        Ten: "Oppo A3",
+        HSX: "Oppo",
+        MauSac: "Đen",
+        DungLuong: "128GB",
+        SoLuong: 2,
+        GiaTien: 3500000
+    }]
+</script>

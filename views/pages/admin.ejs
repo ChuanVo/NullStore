@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title> NULL Store - Admin Page </title>
+    <style>
+        body {
+        position: relative; 
+    }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!-- Jumbotron -->
+    <div class="row jumbotron" style="margin: 0;">
+        <div class="col-md-10">
+            <h1>NULLSTORE Admin Page</h1>
+            <small>Manage users, products, assists</small>
+        </div>
+        <!-- <div class="col-md-2">
+            <form method="POST" action="/admin/logincheck">
+                <button> LOGOUT </button>
+            </form>
+        </div> -->
+    </div>
+    <div class="navbar fixed-top navbar-expand-sm bg-primary navbar-dark sticky-top">
+        <a class="navbar-brand" href="/">NULLSTORE</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#users">USERS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#products">PRODUCTS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#helps">ASSIST</a></li>
+            <li class="nav-item"><a class="nav-link" href="#orders">ORDERS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#saleChart">SALE CHART</a></li>
+            <li class="nav-item"><a class="nav-link" href="/login">LOGIN</a></li>
+            <li class="nav-item"><a class="nav-link" href="/register">REGISTER</a></li>
+        </ul>
+        <a class="btn btn-warning mr-sm-2" href="https://www.db4free.net/phpMyAdmin/" target="_blank">DATABASE ACCESS</a>
+        <a class="btn btn-danger" href="/admin/logincheck">LOGOUT</a>
+    </div>
+
+    <!-- Main Section -->
+    <div class="container" style="background: #feffee">
+        <!-- USER table -->
+        <div id="users" class="container-fluid">
+            <h2>USERS</h2>
+            <form method="POST" action="admin/users-submit-delete">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Selected</th>
+                            <th>#</th>
+                            <th>Số điện thoại</th>
+                            <th>Tên người dùng</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%  user.forEach (function (elem) { %>
+                        <tr>
+                            <td><input type="checkbox" name="userselected" value="<%- elem.ID %>"></td>
+                            <td>
+                                <%- elem.ID %>
+                            </td>
+                            <td>
+                                <%- elem.PHONE %>
+                            </td>
+                            <td>
+                                <%- elem.NAME %>
+                            </td>
+                            <td>
+                                <%- elem.EMAIL %>
+                            </td>
+                        </tr>
+                        <%  }) %>
+                    </tbody>
+                </table>
+                <div>
+                    <div>
+                        <button class="btn btn-danger" type="submit">Xóa</button>
+                        <button class="btn btn-success" data-toggle="collapse" data-target="#adduser" type="button">Thêm
+                            người dùng</button>
+                    </div>
+            </form>
+            <br>
+            <div id="adduser" class="collapse">
+                <br>
+                <form method="POST" action="/admin/add-user">
+                    <div class="form-group">
+                        Số điện thoại: <input type="text" name="phone" placeholder="0123456789" class="form-control"
+                            required>
+                        Mật khẩu: <input type="password" name="password" placeholder="******" class="form-control"
+                            required>
+                        Tên người dùng: <input type="text" name="name" placeholder="Nguyễn Văn Đẹp Trai" class="form-control"
+                            required>
+                        Email: <input type="text" name="email" placeholder="deptrai@abc.xyz" class="form-control">
+                    </div>
+                    <button class="btn btn-success" type="submit">Thêm</button>
+                </form>
+            </div>
+        </div>
+
+        <br>
+        <!-- PRODUCTS table -->
+        <div id="products" class="container-fluid">
+            <h2>PRODUCTS</h2>
+            <form method="POST" action="/admin/products-submit-delete">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>X</th>
+                            <th>#</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Hãng sản xuất</th>
+                            <th>Giá tiền</th>
+                            <th>Màu sắc</th>
+                            <th>Dung lượng</th>
+                            <th>Số lượt mua</th>
+                            <th>Số lượt xem</th>
+                            <th>Mô tả</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%  product.forEach (function (elem) { %>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="productselected" value="<%- elem.ID_SANPHAM %>">
+                            </td>
+                            <td>
+                                <%- elem.ID_SANPHAM %>
+                            </td>
+                            <td>
+                                <%- elem.TenSanPham %>
+                            </td>
+                            <td>
+                                <%- elem.HangSanXuat %>
+                            </td>
+                            <td>
+                                <%- elem.GiaTien %>
+                            </td>
+                            <td>
+                                <%- elem.MauSac %>
+                            </td>
+                            <td>
+                                <%- elem.DungLuong %>
+                            </td>
+                            <td>
+                                <%- elem.SoLuotMua %>
+                            </td>
+                            <td>
+                                <%- elem.SoLuotXem %>
+                            </td>
+                            <td>
+                                <%- elem.MoTa %>
+                            </td>
+                        </tr>
+                        <%  }) %>
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-danger">Xóa</button>
+                <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#addproduct">Thêm sản
+                    phẩm</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateProduct">Cập
+                    nhật</button>
+            </form>
+            <!-- Collapse add a Product -->
+            <div id="addproduct" class="collapse">
+                <br>
+                <form method="POST" action="/admin/add-product">
+                    <div class="form-group row">
+                        <div class="col">
+                            Tên sản phẩm: <input type="text" name="name" class="form-control" value="Iphone X" required>
+                            Hãng sản xuất: <input type="text" name="brand" class="form-control" required>
+                            Giá tiền: <input type="number" name="price" class="form-control" required>
+                            Màu sắc: <input type="text" name="color" class="form-control">
+                            Dung lượng: <input type="text" name="storage" class="form-control">
+                        </div>
+                        <div class="col">
+                            Số lượt mua: <input type="number" name="buy" class="form-control">
+                            Số lượt xem: <input type="number" name="views" class="form-control">
+                            Link ảnh 1: <input type="text" name="anh1" class="form-control">
+                            Link ảnh 2: <input type="text" name="anh2" class="form-control">
+                            Link ảnh 3: <input type="text" name="anh3" class="form-control">
+                        </div>
+                    </div>
+                    Mô tả: <textarea type="text" name="MoTa" class="form-control mb-2" rows="2"></textarea>
+                    <button class="btn btn-success" type="submit">Thêm</button>
+                </form>
+            </div>
+            <!-- Modal update a product -->
+            <div id="updateProduct" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Cập nhật sản phẩm</h4>
+                        </div>
+                        <div class="modal-body container">
+                            <form method="POST" action="/admin/updateProduct">
+                                Chọn sản phẩm: <select name="productSelection" id="productSelection" class="form-control"
+                                    onchange="productSelectionChange()">
+                                    <% product.forEach( function(elem) { %>
+                                    <option value="<%- elem.ID_SANPHAM %>">
+                                        <%- elem.ID_SANPHAM %> -
+                                        <%- elem.TenSanPham%> -
+                                        <%- elem.MauSac %> -
+                                        <%- elem.DungLuong %>
+                                    </option>
+                                    <% }); %>
+                                </select>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        Tên sản phẩm: <input name="updateName" id="updateName" type="text" class="form-control"
+                                            required>
+                                        Hãng sản xuất: <input name="updateBrand" id="updateBrand" type="text" class="form-control"
+                                            required>
+                                        Giá tiền: <input name="updatePrice" type="number" class="form-control" required>
+                                        Màu sắc: <input name="updateColor" type="text" class="form-control">
+
+                                    </div>
+                                    <div class="col">
+                                        Dung lượng: <input name="updateStorage" type="text" class="form-control">
+                                        Số lượt mua: <input name="updateTransaction" type="number" class="form-control">
+                                        Số lượt xem: <input name="updateView" type="number" class="form-control">
+                                    </div>
+                                </div>
+
+                                Mô tả: <textarea name="updateDescription" type="text" name="MoTa" class="form-control mb-2"
+                                    rows="2"></textarea>
+                                <button class="btn btn-success" type="submit">Cập nhật</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- HELPS table -->
+        <div id="helps" class="container-fluid">
+            <h2>HELPS</h2>
+            <!-- Form delete -->
+            <form method="POST" action="/admin/helps-submit-delete">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Selected</th>
+                            <th>#</th>
+                            <th>Tên người dùng</th>
+                            <th>Số điện thoại</th>
+                            <th>Chi tiết</th>
+                            <th>Loại yêu cầu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%  help.forEach (function (elem) { %>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="helpselected" value="<%- elem.ID_TROGIUP %>">
+                            </td>
+                            <td>
+                                <%- elem.ID_TROGIUP %>
+                            </td>
+                            <td>
+                                <%- elem.NAME %>
+                            </td>
+                            <td>
+                                <%- elem.PHONE %>
+                            </td>
+                            <td>
+                                <%- elem.DETAILS %>
+                            </td>
+                            <td>
+                                <%- elem.REQUIREMENTS%>
+                            </td>
+                        </tr>
+                        <%  }) %>
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-danger">Xóa</button>
+            </form>
+        </div>
+        <br>
+        <div id="orders" class="container-fluid">
+            <h2>ORDERS</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>X</th>
+                        <th>ID</th>
+                        <th>Số điện thoại</th>
+                        <th>ID sản phẩm</th>
+                        <th>ID Chi tiết</th>
+                        <th>Hãng sản xuất</th>
+                        <th>Số lượng</th>
+                        <th>Tổng tiền</th>
+                        <th>Ngày đặt mua</th>
+                        <th>Tình trạng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% order.forEach( function(element) { %>
+                    <tr>
+                        <td><input type="checkbox" name="selectedOrders" value="<%- element.ID_DONHANG %>"></td>
+                        <td>
+                            <%- element.ID_DONHANG %>
+                        </td>
+                        <td>
+                            <%- element.SDT_KhachHang %>
+                        </td>
+                        <td>
+                            <%- element.ID_SP %>
+                        </td>
+                        <td>
+                            <%- element.ID_CTSP %>
+                        </td>
+                        <td>
+                            <%- element.HSX %>
+                        </td>
+                        <td>
+                            <%- element.SoLuong %>
+                        </td>
+                        <td>
+                            <%- element.TongTien %>
+                        </td>
+                        <td>
+                            <%- element.date %>
+                        </td>
+                        <% if (element.TinhTrang === '0') { %>
+                        <td>Đang xử lý</td>
+                        <% } else if (element.TinhTrang === '1') { %>
+                        <td>Đang giao hàng</td>
+                        <% } else if (element.TinhTrang === '2') { %>
+                        <td>Đã giao hàng</td>
+                        <% } else if (element.TinhTrang === '3') { %>
+                        <td>Đã hủy</td>
+                        <% } %>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#processOrder" onclick="orderSelectedSubmit()">Xử
+                lý</button>
+            <div class="modal fade" id="processOrder">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Xử lý đơn hàng</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div id="processOrderSelected"></div>
+                            <select name="processOrderSelection" class="form-control">
+                                <option value="0">Đang xử lý</option>
+                                <option value="1">Đang giao hàng</option>
+                                <option value="2">Đã giao hàng</option>
+                                <option value="3">Đã hủy đơn hàng</option>
+                            </select>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="processOrderConfirm()">Cập nhật</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sale chart -->
+        <div>
+            <h2>SALE CHART</h2>
+            <div id="saleChart" style="height: 600px; width: 100%;"></div>
+        </div>
+
+    </div>
+    <script>
+        function productSelectionChange() {
+            var x = document.getElementById("productSelection").value;
+            $.get('/admin/all-products', function (res) {
+                console.log(res);
+                document.getElementById("updateName").value = res[x].TenSanPham;
+                alert(productList);
+            });
+        }
+
+        function orderSelectedSubmit() {
+            var selection = document.getElementsByName("selectedOrders");
+            console.log(selection)
+            var alertStr = "Xử lý các đơn hàng có ID: ";
+            selection.forEach(function (element) {
+                if (element.checked)
+                    alertStr = alertStr + " " + element.defaultValue;
+
+            })
+            // .then(function() {
+            document.getElementById("processOrderSelected").innerHTML = alertStr;
+            // });
+        }
+
+        function processOrderConfirm() {
+            var selection = document.getElementsByName("selectedOrders");
+            var arr = [];
+            selection.forEach(function (element) {
+                if (element.checked)
+                    arr.push(element.defaultValue);
+            });
+            var type = document.getElementsByName("processOrderSelection");
+            console.log(arr);
+            console.log(type[0].selectedIndex);
+            $.ajax({
+                type: "POST",
+                url: '/admin/processChange',
+                data: {
+                    ID: arr,
+                    type: type[0].selectedIndex
+                },
+                success: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+            location.reload();
+        }
+
+        window.onload = function () {
+
+            var promise = new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    var sharedData;
+                    $.ajax({
+                        type: "GET",
+                        url: "/admin/getShares",
+                        success: function (data) {
+                            sharedData = data;
+                            resolve(sharedData);
+                        },
+                        dataType: "json"
+                    });
+                }, 300);
+            });
+            promise.then(function (sharedData) {
+                console.log(sharedData);
+                var option = {
+                    title: {
+                        text: "Sale shares"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 0,
+                        showInLegend: "true",
+                        legendText: "{HSX}",
+                        indexLabel: "{HSX} ({y})",
+                        yValueFormatString: "#,##0.#",
+                        dataPoints: sharedData
+                    }]
+                };
+                $("#saleChart").CanvasJSChart(option);
+            });
+
+        }
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</body>
+
+</html>

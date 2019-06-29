@@ -1,0 +1,609 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Nunito', serif !important;
+    font-size: 10pt !important;
+}
+
+.navbar-brand {
+    font-weight: 800;
+}
+
+.nav-link:hover {
+    border-bottom: 1px solid white;
+    padding-bottom: 7px;
+}
+
+.form-inline {
+    font-size: 10pt !important;
+}
+
+.container {
+    padding: 20px 0px;
+}
+
+.footer-title {
+    font-size: 10pt !important;
+    font-weight: 700;
+    list-style-type: none;
+}
+
+.bullets {
+    text-decoration: none;
+    font-weight: 200;
+    padding: 2px 4px;
+    margin-bottom: 2px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #d9d9d9;
+}
+
+.footer-link:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.boxshadow {
+    position: relative;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 0 16px 34px 7px rgba(121, 121, 121, 0.15);
+    border-radius: 10px;
+    background-color: white;
+    margin: 0px;
+    padding-left: 5px;
+}
+
+.profile-link {
+    text-decoration: none;
+    color: #d9d9d9;
+    font-size: 10pt;
+    font-weight: 200;
+    margin: 0 !important;
+}
+
+.profile-link:hover {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.profile-text {
+    margin: 0px 10px;
+    text-align: right;
+    padding: 4px 0px; 
+}
+
+.nav-img {
+    max-width: 100%;
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin: 7px 0px;
+}
+
+.space-detail-left {
+    margin-bottom: 30px;
+}
+
+.user-setting {
+    font-size: 8pt;
+    font-weight: 600;
+    list-style-type: none;
+    color: rgb(100, 100, 100);
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.list {
+    font-size: 10pt !important;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 0px;
+    padding-left: 10px;
+}
+
+.user-setting-link {
+    text-decoration: none;
+    color: black;
+    padding-left: 10px;
+}
+
+.list:hover {
+    border-radius: 4px;
+    background-color: #e9e9e9;
+    font-weight: 800;
+}
+
+.user-setting-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.space-detail-right {
+    margin-bottom: 15px;
+}
+
+.active-now {
+    border-radius: 4px;
+    font-weight: 800;
+    background-color: #e9e9e9;
+}
+
+.content {
+    height: 100%;
+}
+
+/* Personal-Information */
+
+.custom-file {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.custom-file-control {
+    color: black;
+    font-weight: 700;
+}
+
+.custom-file-control:hover {
+    color: #006dec;
+    cursor: pointer;
+}
+
+.ava {
+    border: 2px solid black;
+    width: 80%;
+}
+
+.form-group {
+    margin-bottom: 20px !important;
+}
+
+.form-control-label {
+    font-size: 10pt !important;
+    padding: 0 0 5px 0 !important;
+}
+
+.form-text-size {
+    font-size: 12pt !important;
+    color: black !important;
+    font-weight: 600 !important;
+}
+
+.btn-primary {
+    margin-top: 20px !important;
+    background-color: black !important;
+    border: none !important;
+    font-size: 12pt !important;
+}
+
+.btn-primary:hover {
+    font-weight: 800;
+}
+
+.body-background-notificationAva{
+    background-color: rgba(255, 255, 255, 0.692);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.body-background-notificationInfo {
+    background-color: rgba(255, 255, 255, 0.692);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.body-background-notificationPassSuccess {
+    background-color: rgba(255, 255, 255, 0.692);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.body-background-notificationPassFail {
+    background-color: rgba(255, 255, 255, 0.692);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.body-background-notificationRetypePassword {
+    background-color: rgba(255, 255, 255, 0.692);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.container-notification {
+    position: absolute;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.425);
+    border-radius: 10px;
+    background-color: white;
+    background-position: center;
+    top: 200px;
+    left: 400px;
+    right: 400px;
+    padding: 20px 20px;
+    font-size: 12pt;
+    text-align: justify;
+    color: black;
+}
+
+.btnatr {
+    text-align: center;
+    background-color: black !important;
+    border: none !important;
+    width: 25% !important;
+    padding: 0 !important;
+    margin-top: 0 !important;
+}
+
+.btnatr:hover {
+    font-weight: 800;
+}
+
+.success-btn {
+    padding: 3px 20px;
+}
+
+/* Order */
+.order {
+    padding: 5px 30px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 12pt;
+    color: rgb(100, 100, 100);
+}
+
+.order-productinfo {
+    border: none;
+    padding: 5px 0px !important;
+    margin: 0px 30px 5px 30px !important;
+}
+
+.order-productdetail {
+    border-bottom: 1px solid rgb(180, 180, 180);
+    margin: 0px 30px 0px 30px !important;
+    padding: 5px 0px 5px 0px !important;
+}
+
+.order-productimg {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    text-decoration: none;
+}
+
+.detail-content {
+    font-weight: 400;
+    font-size: 10pt;
+    color: rgb(100, 100, 100);
+    padding: 0 !important;
+}
+
+.order-product-mainname {
+    font-weight: 800;
+    font-size: 13pt;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.dc-row {
+    padding-bottom: 5px;
+}
+
+.dc-title {
+    color: rgb(100, 100, 100);
+    vertical-align: text-bottom !important;
+    padding-right: 0 !important;
+}
+
+.dc-content {
+    color: black;
+    vertical-align: text-bottom !important;
+    padding: 0 !important;
+}
+
+.dc-cost {
+    color: red;
+    font-weight: 800 !important;
+}
+
+.delivery {
+    padding: 5px 30px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 12pt;
+    color: rgb(100, 100, 100);
+}
+
+.delivery-detail {
+    margin: 0px 30px 0px 30px !important;
+    padding: 5px 0px 5px 0px !important;
+}
+
+.delivery-formgroup {
+    margin-bottom: 10px !important;
+}
+
+/* Order-History */
+
+.historyorder {
+    padding: 10px 30px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 12pt;
+    color: rgb(100, 100, 100);
+}
+
+.product-part {
+    border-bottom: 1px solid rgb(180, 180, 180);
+    margin: 0px 30px 20px 30px !important;
+    padding: 5px 0px 10px 0px !important;
+}
+
+.product-history-order {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    text-decoration: none;
+}
+
+.product-mainname {
+    font-weight: 800;
+    font-size: 13pt;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.product-history-detail {
+    font-weight: 400;
+    font-size: 10pt;
+    color: rgb(100, 100, 100);
+    padding: 0 !important;
+}
+
+.phd-row {
+    padding-bottom: 5px;
+}
+
+.phd-title {
+    color: rgb(100, 100, 100);
+    vertical-align: text-bottom;
+    padding-right: 0 !important;
+}
+
+.phd-content {
+    color: black;
+    vertical-align: text-bottom;
+    padding: 0 !important;
+}
+
+.phd-status {
+    font-weight: 800 !important;
+}
+
+.phd-cost {
+    color: red;
+    font-weight: 800 !important;
+}
+
+#process {
+    color: black;
+}
+
+#delivery {
+    color: rgb(0, 192, 0);
+}
+
+#abort {
+    color: red;
+}
+
+/* Change-Password */
+
+.passchange {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.forgot-password {
+    font-weight: 600;
+    font-size: 12pt;
+    color: #006dec;
+}
+
+.forgot-password:hover {
+    text-decoration: none;
+    font-weight: 700;
+    color: #006dec;
+}
+
+/* Update Avatar */
+.avatar-gallery {
+    background-color: rgba(255, 255, 255, 0.692);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.gallery-content {
+    position: absolute;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.664);
+    border-radius: 15px;
+    background-color: white;
+    background-position: center;
+    height: 82%;
+    width: 100% !important;
+    top: 50px;
+    left: 120px;
+    right: 120px;
+    padding: 20px 50px !important;
+    font-size: 12pt;
+}
+
+.gC-title {
+    font-size: 20pt;
+    font-weight: 800;
+    color: blue;
+    margin: 0 !important;
+    display: unset !important;
+    text-align: center !important;
+}
+
+.gC-alt {
+    font-size: 10pt;
+    font-weight: 400;
+    color: black;
+    margin: 0 !important;
+    display: unset !important;
+    text-align: center !important;
+}
+
+.gC-picture {
+    font-size: 12pt;
+    font-weight: 600;
+    color: black;
+    margin: 10px 0px !important;
+    text-align: center !important;
+}
+
+.gC-button {
+    font-size: 14pt !important;
+    font-weight: 600;
+    color: black;
+    margin: 0 !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+}
+
+.btngC {
+    background-color: black !important;
+    border: none !important;
+    width: 15% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.gC-btn {
+    font-size: 14pt;
+    font-weight: 600;
+    margin: 0;
+    padding: 8px 10px;
+}
+
+.check {
+    opacity: 0.75;
+	color: blue;
+}
+
+.name-check {
+    color: red !important;
+    font-weight: 800 !important;
+}
+
+.hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+.mychoice {
+    background-color: white !important;
+    margin: 0 !important;
+}
+
+.gC-avatarname {
+    color: black;
+    font-weight: 600;
+    margin: 0 !important;
+    padding-top: 5px;
+}
+
+.gC-avatarname:hover {
+    cursor: pointer;
+}
+
+.gC-avatar {
+    border: 2px solid white;
+    width: 70%;
+    border-radius: 50%;
+}
+
+#close-avatar-gallery {
+    position: absolute;
+    top: 35px;
+    right: 40px;
+    cursor: pointer;
+    color: rgb(255, 155, 130);
+    font-weight: 600;
+    font-size: 16pt;
+}
+
+#close-avatar-gallery:hover {
+    color: red;
+}

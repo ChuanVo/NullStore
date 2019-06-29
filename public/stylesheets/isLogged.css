@@ -1,0 +1,36 @@
+.profile-link {
+    text-decoration: none;
+    color: #d9d9d9;
+    font-size: 10pt;
+    font-weight: 200;
+    margin: 0px 10px !important;
+}
+
+.profile-link:hover {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.profile-text {
+    margin: 0px 10px;
+    text-align: right;
+    padding: 4px 0px; 
+}
+
+.nav-img {
+    max-width: 100%;
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin: 7px 0px;
+}
+
+.btn-outline-light {
+    font-size: 10pt;
+}
+
+.profile-form-control {
+    font-size: 10pt;
+}

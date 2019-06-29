@@ -1,0 +1,76 @@
+<link rel="stylesheet" type="text/css" href="stylesheets/isLogged.css">
+
+<nav class="navbar navbar-expand-lg  navbar-dark" style="background-color: black;">
+
+    <!-- Store name-->
+    <a class="navbar-brand" href="/">
+        <i class="fas fa-star-half-alt mr-1"></i>
+        NULL Store
+    </a>
+
+    <!-- Nav -->
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarData" aria-controls="navbarData"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse col-xs-6" id="navbarData">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="nav-phone" href="/"> Điện thoại </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav-sale" href="/sale"> Tin khuyến mãi </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav-contact" href="/contact"> Liên hệ </a>
+            </li>
+            <% if(isSuccess === 2 || isSuccess === 0 || user === undefined) { %>
+            <li class="nav-item">
+                <a class="nav-link" id="nav-login" href="/login"> Đăng nhập </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav-register" href="/register"> Đăng ký </a>
+            </li>
+        </ul>
+    </div>
+
+    <span class="navbar-text mr-2" style="color: white;">
+        <i class="fas fa-phone fa-rotate-90 mr-1"></i>
+        0123.456.789
+    </span>
+
+    <form class="form-inline my-sm-2" method="GET" action="/search">
+        <input name="searchVal" id="searchVal" class="form-control mr-sm-2" type="text" placeholder="Tìm theo tên sản phẩm ..." aria-label="Search">
+        <button class="btn btn-outline-light my-2 my-md-0" id="search" type="submit" style="font-weight: 800;"> Tìm kiếm
+        </button>
+    </form>
+    <% } else { %>
+    </ul>
+    </div>
+    <span class="navbar-text mr-2" style="color: white;">
+        <i class="fas fa-phone fa-rotate-90 mr-1"></i>
+        0123.456.789
+    </span>
+
+    <form class="form-inline my-sm-2" method="GET" action="/search">
+        <input name="searchVal" id="searchVal" class="form-control profile-form-control mr-sm-2" type="text" placeholder="Tìm theo tên sản phẩm ..."
+            aria-label="Search">
+        <button class="btn btn-outline-light my-2 my-md-0" id="search" type="submit" style="font-weight: 800;"> Tìm kiếm
+        </button>
+    </form>
+
+    <a class="form-inline profile-link" href="/profile"> <span class="sr-only">(current)</span>
+        <p class="profile-text"> Chào, <br> <strong>
+                <%= user.NAME  %></strong> </p>
+        <% if (avaValue === undefined) { %>
+        <img class="nav-img" src="<%= user.AVATAR %>" alt="Null">
+        <% } else { %>
+        <img class="nav-img" src="<%= user.AVATAR %>" alt="avatar">
+        <% } %>
+    </a>
+    <% } %>
+</nav>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="script/function.js"></script> -->

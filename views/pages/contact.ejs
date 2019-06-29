@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/header.ejs %>
+    <link rel="stylesheet" type="text/css" href="stylesheets/contact.css">
+    <title> NULL Store - Liên hệ </title>
+</head>
+
+<body>
+    <!-- Navigation bar-->
+    <% include ../partials/nav.ejs %>
+
+    <!-- Body detail-->
+
+    <div class="body-background" style="padding-bottom: 20px;">
+        <div class="container" style="padding-top: 60px;">
+
+            <!-- Title of contact page -->
+            <div class="row justify-content-md-center contact-title">
+                <div class="contact-title-name col-md-12">
+                    Hotline tư vấn miễn phí toàn quốc: 0123.456.789
+                </div>
+                <div class="contact-title-detail col-md-12">
+                    Hoặc điền thông tin dưới đây để chúng tôi liên hệ lại tư vấn
+                </div>
+            </div>
+
+            <!-- Row information -->
+            <form method="POST" action="/contact/submit-user-info">
+                <div class="row justify-content-md-center contact-sendinfo">
+                    <div class="col-md-6">
+                        <div style="margin-bottom: 5px;"> Họ và tên <strong>*</strong> </div>
+                        <input id="name" name="name" type="text" class="form-control" placeholder="Nhập họ tên đầy đủ của bạn"
+                            aria-label="username">
+                    </div>
+                    <div class="col-md-6">
+                        <div style="margin-bottom: 5px;"> Số điện thoại <strong>*</strong> </div>
+                        <input id="phone" name="phone" type="text" class="form-control" placeholder="Nhập số điện thoại của bạn"
+                            aria-label="phone">
+                    </div>
+                </div>
+
+                <!-- Row request -->
+                <div class="row justify-content-md-center contact-sendinfo">
+                    <div class="col-md-6">
+                        <div style="margin-bottom: 5px;"> Nội dung tư vấn <strong>*</strong> </div>
+                        <textarea id="detail" name="detail" type="text" class="form-control" placeholder="Nhập nội dung tại đây"
+                            aria-label="content" style="height: 160px;"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <div style="margin-bottom: 5px;"> Danh mục cần hỗ trợ </div>
+                        <div class="checkbox">
+                            <input class="checkbox-icon" type="checkbox" name="help" value="Hướng dẫn sử dụng">
+                            Hướng dẫn sử dụng <br>
+                        </div>
+                        <div class="checkbox">
+                            <input class="checkbox-icon" type="checkbox" name="help" value="Tư vấn sản phẩm">
+                            Tư vấn sản phẩm <br>
+                        </div>
+                        <div class="checkbox">
+                            <input class="checkbox-icon" type="checkbox" name="help" value="Hỗ trợ kĩ thuật">
+                            Hỗ trợ kĩ thuật <br>
+                        </div>
+                        <div class="checkbox">
+                            <input class="checkbox-icon" type="checkbox" name="help" value="Góp ý - Khiếu nại">
+                            Góp ý - Khiếu nại <br>
+                        </div>
+                        <div class="checkbox">
+                            <input class="checkbox-icon" type="checkbox" name="help" value="Khác">
+                            Khác <br>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row button send -->
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6 contact-buttonsend">
+                        <button type="submit" class="btn btn-load btn-lg btn-primary"> Gửi yêu cầu </button>
+                    </div>
+                </div>
+            </form>
+
+            <% if(fullfill === 1) { %>
+            <div class="body-background-notification" style="padding-bottom: 20px;">
+                <div class="container-notification">
+                    <p style="text-align: center; font-weight: 800; font-size: 14pt; margin-bottom: 10px;"> THÔNG BÁO
+                    </p>
+                    <p> Vui lòng điền <a style="color: red; font-weight: 800;"> đầy đủ thông tin </a> (các mục có dấu
+                        <strong>*</strong>) để chúng tôi có thể mang đến cho bạn một dịch vụ chu đáo nhất. </p>
+                    <p style="text-align: right; padding: 0; margin: 0;"> <a style="font-weight: 800;"> NULL Store </a>
+                        xin
+                        chân thành cảm ơn ! </p>
+                    <p style="text-align: center; margin-bottom: 0px; margin-top: 16px;">
+                        <button type="submit" id="accept-btn" class="btn btn-primary btnatr">
+                            <div class="accept-btn"> Đồng ý </div>
+                        </button>
+                    </p>
+                </div>
+            </div>
+            <% } %>
+
+            <% if(fullfill === 2) { %>
+            <div class="body-background-notificationDone" style="padding-bottom: 20px;">
+                <div class="container-notification">
+                    <p style="text-align: center; font-weight: 800; font-size: 14pt; margin-bottom: 10px;"> THÔNG BÁO
+                    </p>
+                    <p> Chúng tôi đã nhận được thông tin của quý khách. Chúng tôi sẽ liên hệ với bạn <a style="color: red; font-weight: 800;">
+                            qua số điện thoại </a> trong thời gian sớm nhất. </p>
+                    <p style="text-align: right; padding: 0; margin: 0;"> <a style="font-weight: 800;"> NULL Store </a>
+                        xin
+                        chân thành cảm ơn ! </p>
+                    <p style="text-align: center; margin-bottom: 0px; margin-top: 16px;">
+                        <button type="submit" id="accept-btn" class="btn btn-primary btnatr">
+                            <div class="accept-btn"> Đồng ý </div>
+                        </button>
+                    </p>
+                </div>
+            </div>
+            <% } %>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <% include ../partials/footer.ejs %>
+
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#nav-contact").css("color", "white");
+
+            $("#accept-btn").click(function () {
+                $(".body-background-notification").hide();
+            });
+
+            $("#accept-btn").click(function () {
+                $(".body-background-notificationDone").hide();
+            });
+        })
+    </script>
+
+    <!-- BootStrap 4.1.3 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/header.ejs %>
+    <link rel="stylesheet" type="text/css" href="stylesheets/profile.css">
+    <title> NULL Store - Thông tin cá nhân </title>
+</head>
+
+<body>
+    <!-- Navigation bar-->
+    <% include ../partials/nav.ejs %>
+
+    <!-- Body detail-->
+    <div class="container" style="padding-bottom: 5px;">
+        <div class="row">
+
+            <!-- Detail left-->
+            <div class="col-lg-3">
+                <div class="row space-detail-left">
+                    <div class="boxshadow col-md-10 py-3">
+                        <li class="user-setting"> Tài khoản của bạn </li>
+                        <li class="user-setting list">
+                            <a href="" class="user-setting-link" data-target="#personal-information" data-toggle="collapse"
+                                id="btn-personal-information">
+                                Thông tin cá nhân </a>
+                        </li>
+                        <li class="user-setting list">
+                            <a href="" class="user-setting-link" data-target="#order-history" data-toggle="collapse" id="btn-order-history">
+                                Lịch sử mua hàng </a>
+                        </li>
+                        <li class="user-setting list">
+                            <a href="" class="user-setting-link" data-target="#change-password" data-toggle="collapse"
+                                id="btn-change-password">
+                                Đổi mật khẩu </a>
+                        </li>
+                        <li class="user-setting list">
+                            <a href="/profile/logout" class="user-setting-link" id="btn-logout"> Đăng xuất </a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail right-->
+            <div class="col-lg-9">
+
+                <!-- Also menu -->
+                <div class="row space-detail-right">
+                    <div class="boxshadow col-md-12 py-3" style="min-height: 550px; height: 100%;">
+                        <div id="tab-content">
+
+                            <!-- Personal information -->
+                            <div class="content collapse" id="personal-information" data-parent="#tab-content">
+                                <div class="row">
+                                    <% if (avaValue != undefined) { %>
+                                    <div class="col-md-3" style="text-align: center;">
+                                        <img src="<%= user.AVATAR %>" class="m-x-auto img-fluid rounded-circle ava" alt="avatar">
+                                        <label class="custom-file">
+                                            <span class="custom-file-control"> Thay đổi Avatar </span>
+                                        </label>
+                                    </div>
+                                    <% } else { %>
+                                    <div class="col-md-3" style="text-align: center;">
+                                        <img src="/img/avatar/default.png" class="m-x-auto img-fluid rounded-circle ava"
+                                            alt="avatar">
+                                        <label class="custom-file">
+                                            <span class="custom-file-control"> Thay đổi Avatar </span>
+                                        </label>
+                                    </div>
+                                    <% } %>
+                                    <div class="col-md-9">
+                                        <form role="form" method="POST" action="/profile/personal-information">
+                                            <!-- Phone -->
+                                            <div class="form-group">
+                                                <label class="col-md-6 col-form-label form-control-label"> Số điện
+                                                    thoại
+                                                </label>
+                                                <input name="phone" class="col-md-10 form-control form-text-size" type="text"
+                                                    value="<%= user.PHONE  %>">
+                                            </div>
+                                            <!-- Name -->
+                                            <div class="form-group">
+                                                <label class="col-md-6 col-form-label form-control-label"> Họ và tên</label>
+                                                <input name="name" class="col-md-10 form-control form-text-size" type="text"
+                                                    value="<%= user.NAME  %>">
+                                            </div>
+                                            <!-- Gender -->
+                                            <div class="form-group">
+                                                <label class="col-md-6 col-form-label form-control-label"> Giới tính
+                                                </label>
+                                                <div class="col-md-10">
+                                                    <% if(gender === 0 || gender === undefined) { %>
+                                                    <div class="form-check form-check-inline">
+                                                        <label class="radio-inline form-text-size"><input class="form-check-input"
+                                                                type="radio" name="gender" value="Nam" checked> Nam
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <label class="radio-inline form-text-size"><input class="form-check-input"
+                                                                type="radio" name="gender" value="Nữ"> Nữ </label>
+                                                    </div>
+                                                    <% } else { %>
+                                                    <div class="form-check form-check-inline">
+                                                        <label class="radio-inline form-text-size"><input class="form-check-input"
+                                                                type="radio" name="gender" value="Nam"> Nam </label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <label class="radio-inline form-text-size"><input class="form-check-input"
+                                                                type="radio" name="gender" value="Nữ" checked> Nữ
+                                                        </label>
+                                                    </div>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                            <!-- Email -->
+                                            <div class="form-group">
+                                                <label class="col-md-6 col-form-label form-control-label"> Email
+                                                </label>
+                                                <input name="mail" class="col-md-10 form-control form-text-size" type="email"
+                                                    value="<%= user.EMAIL  %>">
+                                            </div>
+                                            <!-- Address -->
+                                            <div class="form-group">
+                                                <label class="col-lg-6 col-form-label form-control-label"> Địa chỉ
+                                                </label>
+                                                <input name="address" class="col-md-10 form-control form-text-size"
+                                                    type="text" value="<%= user.ADDRESS  %>" placeholder="Nhập địa chỉ">
+                                            </div>
+                                            <!-- Button -->
+                                            <div class="form-group">
+                                                <input type="submit" class="btn btn-primary col-md-3" value="Cập nhật">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Order history -->
+                            <div class="content collapse" id="order-history" data-parent="#tab-content">
+                                <div class="col-md-12 historyorder">
+                                    <div class="row product-part" style="border: none; padding-bottom: 5px !important; margin-bottom: 5px !important;">
+                                        Thông tin sản phẩm </div>
+                                    <% if (orderHistory != undefined) { %>
+                                    <% orderHistory.forEach (function (elem) { %>
+                                    <div class="row product-part">
+                                        <div class="col-md-2" style="text-align: center;">
+                                            <img class="product-history-order" src="/img/product/<%= elem.HangSanXuat %>/<%= elem.ID_SANPHAM %>.png"
+                                                alt="Oppo A83 64GB">
+                                        </div>
+                                        <div class="col-md-10 product-history-detail">
+                                            <div class="product-mainname">
+                                                <%= elem.TenSanPham %>
+                                            </div>
+                                            <div class="row phd-row">
+                                                <div class="col-md-3 phd-title"> Màu: </div>
+                                                <div class="col-md-2 phd-content">
+                                                    <%= elem.MauSac %>
+                                                    <% if (elem.MauSac === 'Đen') { %>
+                                                    <img src="/img/color-product/black.png" style="width: 15%; object-fit: contain; margin: 0px 0px 6px 5px;">
+                                                    <% } else { if (elem.MauSac === 'Xanh') { %>
+                                                    <img src="/img/color-product/blue.png" style="width: 15%; object-fit: contain; margin: 0px 0px 6px 5px;">
+                                                    <% } else { if (elem.MauSac === 'Vàng') { %>
+                                                    <img src="/img/color-product/gold.png" style="width: 15%; object-fit: contain; margin: 0px 0px 6px 5px;">
+                                                    <% } else { if (elem.MauSac === 'Bạc') { %>
+                                                    <img src="/img/color-product/grey.png" style="width: 15%; object-fit: contain; margin: 0px 0px 6px 5px;">
+                                                    <% } else { if (elem.MauSac === 'Hồng') { %>
+                                                    <img src="/img/color-product/pink.png" style="width: 15%; object-fit: contain; margin: 0px 0px 6px 5px;">
+                                                    <% } else { if (elem.MauSac === 'Tím') { %>
+                                                    <img src="/img/color-product/purple.png" style="width: 15%; object-fit: contain; margin: 0px 0px 6px 5px;">
+                                                    <% } else { if (elem.MauSac === 'Đỏ') { %>
+                                                    <img src="/img/color-product/red.png" style="width: 15%; object-fit: contain; margin: 0px 0px 6px 5px;">
+                                                    <% } else { if (elem.MauSac === 'Trắng') { %>
+                                                    <img src="/img/color-product/white.png" style="width: 15%; object-fit: contain; margin: 0px 0px 6px 5px;">
+                                                    <% }}}}}}}} %>
+                                                </div>
+                                            </div>
+                                            <div class="row phd-row">
+                                                <div class="col-md-3 phd-title"> Dung lượng: </div>
+                                                <div class="col-md-2 phd-content">
+                                                    <%= elem.DungLuong %>
+                                                </div>
+                                                <div class="col-md-3 phd-title"> Ngày đặt mua: </div>
+                                                <div class="col-md-2 phd-content">
+                                                    <%= elem.date %>
+                                                </div>
+                                            </div>
+                                            <div class="row phd-row">
+                                                <div class="col-md-3 phd-title"> Số lượng: </div>
+                                                <div class="col-md-2 phd-content">
+                                                    <%= elem.SoLuong %>
+                                                </div>
+                                                <div class="col-md-3 phd-title"> Trạng thái: </div>
+                                                <div class="col-md-2 phd-content phd-status">
+                                                    <% if (elem.TinhTrang === '0') { %>
+                                                    <a id="process"> Đang xử lý </a>
+                                                    <% } else { if (elem.TinhTrang === '1') { %>
+                                                    <a id="process"> Đang giao hàng </a>
+                                                    <% } else { if (elem.TinhTrang === '2') { %>
+                                                    <a id="delivery"> Đã giao hàng </a>
+                                                    <% } else { if (elem.TinhTrang === '3') { %>
+                                                    <a id="abort"> Đã huỷ đơn </a>
+                                                    <% }}}} %>
+                                                </div>
+                                            </div>
+                                            <div class="row phd-row">
+                                                <div class="col-md-3 phd-title"> Tổng đơn: </div>
+                                                <div class="col-md-2 phd-content phd-cost">
+                                                    <%= elem.money %> đ
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% }) %>
+                                    <% } %>
+                                </div>
+                            </div>
+
+                            <!-- Change password -->
+                            <div class="content collapse" id="change-password" data-parent="#tab-content">
+                                <div id="passwordForm" class="col-md-8 passchange">
+                                    <!-- Old password -->
+                                    <div class="form-group">
+                                        <label class="col-form-label form-control-label"> Mật khẩu cũ </label>
+                                        <input type="password" class="input-lg form-control form-text-size" name="oldpassword"
+                                            id="oldpassword" placeholder="Nhập mật khẩu cũ" autocomplete="off">
+                                    </div>
+                                    <!-- New password -->
+                                    <div class="form-group">
+                                        <label class="col-form-label form-control-label"> Mật khẩu mới </label>
+                                        <input type="password" class="input-lg form-control form-text-size" name="newpassword"
+                                            id="newpassword" placeholder="Nhập mật khẩu mới" autocomplete="off">
+                                    </div>
+                                    <!-- Retype new password -->
+                                    <div class="form-group">
+                                        <label class="col-form-label form-control-label"> Nhập lại mật khẩu </label>
+                                        <input type="password" class="input-lg form-control form-text-size" name="retypepassword"
+                                            id="retypepassword" placeholder="Nhập lại mật khẩu mới" autocomplete="off">
+                                    </div>
+                                    <button class="col-md-4 btn btn-load btn-lg btn-primary" id="btn-pass"
+                                        data-loading-text="Changing Password..."> Đổi mật khẩu </button>
+                                </div>
+                                <div class="col-md-8 passchange">
+                                    <a href="#" class="forgot-password"> Quên mật khẩu? </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% if(changeAva === true) { %>
+    <div class="body-background-notificationAva" style="padding-bottom: 20px;">
+        <div class="container-notification">
+            <p style="text-align: center; font-weight: 800; font-size: 14pt; margin-bottom: 10px;">
+                THÔNG BÁO </p>
+            <p> Bạn đã thay đổi ảnh đại diện <a style="color: red; font-weight: 800;">
+                    thành công. </a> Hãy vào trang thông tin của mình để kiểm tra lại. </p>
+            <p style="text-align: right; padding: 0;"> <a style="font-weight: 800;">
+                    NULL Store </a>
+                xin
+                chân thành cảm ơn ! </p>
+            <p style="text-align: center; margin-bottom: 0px;">
+                <button type="submit" id="successAva-btn" class="btn btn-primary btnatr">
+                    <div class="success-btn"> Đóng </div>
+                </button>
+            </p>
+        </div>
+    </div>
+    <% } %>
+    <% if(changeAva === false) { %>
+    <div class="body-background-notificationAva" style="padding-bottom: 20px;">
+        <div class="container-notification">
+            <p style="text-align: center; font-weight: 800; font-size: 14pt; margin-bottom: 10px;">
+                THÔNG BÁO </p>
+            <p> Do bạn không lựa chọn hình ảnh để cập nhật nên avatar của bạn đã tự động đặt về <a style="color: red; font-weight: 800;">
+                    dạng mặc định. </a> Hãy vào trang thông tin của mình để kiểm tra lại. </p>
+            <p style="text-align: right; padding: 0;"> <a style="font-weight: 800;">
+                    NULL Store </a>
+                xin
+                chân thành cảm ơn ! </p>
+            <p style="text-align: center; margin-bottom: 0px;">
+                <button type="submit" id="successAva-btn" class="btn btn-primary btnatr">
+                    <div class="success-btn"> Đóng </div>
+                </button>
+            </p>
+        </div>
+    </div>
+    <% } %>
+
+    <% if(changeInfo === true) { %>
+    <div class="body-background-notificationInfo" style="padding-bottom: 20px;">
+        <div class="container-notification">
+            <p style="text-align: center; font-weight: 800; font-size: 14pt; margin-bottom: 10px;">
+                THÔNG BÁO </p>
+            <p> Bạn đã cập nhật thông tin <a style="color: red; font-weight: 800;">
+                    thành công. </a> Hãy vào trang thông tin của mình để kiểm tra lại. </p>
+            <p style="text-align: right; padding: 0;"> <a style="font-weight: 800;">
+                    NULL Store </a>
+                xin
+                chân thành cảm ơn ! </p>
+            <p style="text-align: center; margin-bottom: 0px;">
+                <button type="submit" id="successInfo-btn" class="btn btn-primary btnatr">
+                    <div class="success-btn"> Đóng </div>
+                </button>
+            </p>
+        </div>
+    </div>
+    <% } %>
+
+    <div class="body-background-notificationPassSuccess" style="padding-bottom: 20px;">
+        <div class="container-notification">
+            <p style="text-align: center; font-weight: 800; font-size: 14pt; margin-bottom: 10px;">
+                THÔNG BÁO </p>
+            <p> Bạn đã thay đổi mật khẩu <a style="color: red; font-weight: 800;">
+                    thành công. </a> Hãy đăng xuất và kết nối lại để kiểm tra. </p>
+            <p style="text-align: right; padding: 0;"> <a style="font-weight: 800;">
+                    NULL Store </a>
+                xin
+                chân thành cảm ơn ! </p>
+            <p style="text-align: center; margin-bottom: 0px;">
+                <button type="submit" id="successPass-btn" class="btn btn-primary btnatr">
+                    <div class="success-btn"> Đóng </div>
+                </button>
+            </p>
+        </div>
+    </div>
+
+    <div class="body-background-notificationPassFail" style="padding-bottom: 20px;">
+        <div class="container-notification">
+            <p style="text-align: center; font-weight: 800; font-size: 14pt; margin-bottom: 10px;">
+                THÔNG BÁO </p>
+            <p> Mật khẩu cũ của bạn <a style="color: red; font-weight: 800;">
+                    không khớp. </a> Vui lòng kiểm tra và nhập lại đúng mật khẩu. </p>
+            <p style="text-align: right; padding: 0;"> <a style="font-weight: 800;">
+                    NULL Store </a>
+                xin
+                chân thành cảm ơn ! </p>
+            <p style="text-align: center; margin-bottom: 0px;">
+                <button type="submit" id="failPass-btn" class="btn btn-primary btnatr">
+                    <div class="success-btn"> Đóng </div>
+                </button>
+            </p>
+        </div>
+    </div>
+
+    <div class="body-background-notificationRetypePassword" style="padding-bottom: 20px;">
+        <div class="container-notification">
+            <p style="text-align: center; font-weight: 800; font-size: 14pt; margin-bottom: 10px;">
+                THÔNG BÁO </p>
+            <p> Thông tin mật khẩu mới cập nhật <a style="color: red; font-weight: 800;">
+                    không khớp </a> với nhau. Vui lòng kiểm tra và nhập lại đúng mật khẩu. </p>
+            <p style="text-align: right; padding: 0;"> <a style="font-weight: 800;">
+                    NULL Store </a>
+                xin
+                chân thành cảm ơn ! </p>
+            <p style="text-align: center; margin-bottom: 0px;">
+                <button type="submit" id="failRetype-btn" class="btn btn-primary btnatr">
+                    <div class="success-btn"> Đóng </div>
+                </button>
+            </p>
+        </div>
+    </div>
+
+    <div class="row avatar-gallery">
+        <form class="col-md-10 gallery-content" method="POST" action="/profile/change-avatar">
+            <div class="row gC-title">
+                <p style="margin: 0;"> THƯ VIỆN ẢNH ĐẠI DIỆN CỦA NULL STORE </p>
+                <i class="fas fa-times-circle" id="close-avatar-gallery"></i>
+            </div>
+            <div class="row gC-alt">
+                <p style="margin: 0;"> <i> Chọn 1 trong số các hình bên dưới để thay đổi avatar </i> </p>
+            </div>
+            <div class="row gC-picture">
+                <div class="col-md-3" style="text-align: center;">
+                    <label class="btn btn-primary mychoice">
+                        <img src="/img/avatar/1.png" alt="avatar" class="m-x-auto img-fluid img-check gC-avatar">
+                        <input type="radio" name="gCavatar" id="item" value="/img/avatar/1.png" class="hidden"
+                            autocomplete="off">
+                        <p class="gC-avatarname check-name"> Quobee dễ thương </p>
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="btn btn-primary mychoice">
+                        <img src="/img/avatar/2.png" alt="avatar" class="m-x-auto img-fluid img-check gC-avatar">
+                        <input type="radio" name="gCavatar" id="item" value="/img/avatar/2.png" class="hidden"
+                            autocomplete="off">
+                        <p class="gC-avatarname check-name"> Tonton đáng yêu </p>
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="btn btn-primary mychoice">
+                        <img src="/img/avatar/3.png" alt="avatar" class="m-x-auto img-fluid img-check gC-avatar">
+                        <input type="radio" name="gCavatar" id="item" value="/img/avatar/3.png" class="hidden"
+                            autocomplete="off">
+                        <p class="gC-avatarname check-name"> Em trai Yam </p>
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="btn btn-primary mychoice">
+                        <img src="/img/avatar/4.png" alt="avatar" class="m-x-auto img-fluid img-check gC-avatar">
+                        <input type="radio" name="gCavatar" id="item" value="/img/avatar/4.png" class="hidden"
+                            autocomplete="off">
+                        <p class="gC-avatarname check-name"> Mimi bà chị </p>
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="btn btn-primary mychoice">
+                        <img src="/img/avatar/5.png" alt="avatar" class="m-x-auto img-fluid img-check gC-avatar">
+                        <input type="radio" name="gCavatar" id="item" value="/img/avatar/5.png" class="hidden"
+                            autocomplete="off">
+                        <p class="gC-avatarname check-name"> Thỏ 7 màu </p>
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="btn btn-primary mychoice">
+                        <img src="/img/avatar/6.png" alt="avatar" class="m-x-auto img-fluid img-check gC-avatar">
+                        <input type="radio" name="gCavatar" id="item" value="/img/avatar/6.png" class="hidden"
+                            autocomplete="off">
+                        <p class="gC-avatarname check-name"> Siêu mèo Capoo </p>
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="btn btn-primary mychoice">
+                        <img src="/img/avatar/7.png" alt="avatar" class="m-x-auto img-fluid img-check gC-avatar">
+                        <input type="radio" name="gCavatar" id="item" value="/img/avatar/7.png" class="hidden"
+                            autocomplete="off">
+                        <p class="gC-avatarname check-name"> Usagyuuuun </p>
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="btn btn-primary mychoice">
+                        <img src="/img/avatar/8.png" alt="avatar" class="m-x-auto img-fluid img-check gC-avatar">
+                        <input type="radio" name="gCavatar" id="item" value="/img/avatar/8.png" class="hidden"
+                            autocomplete="off">
+                        <p class="gC-avatarname check-name"> Kawaiii </p>
+                    </label>
+                </div>
+            </div>
+            <p class="gC-button">
+                <button type="submit" id="gC-btn" class="btn btn-primary btngC">
+                    <p class="gC-btn"> Thay đổi </p>
+                </button>
+            </p>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <% include ../partials/footer.ejs %>
+
+    <!-- BootStrap 4.1.3 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".custom-file-control").click(function () {
+                $(".avatar-gallery").show();
+            });
+
+            $("#close-avatar-gallery").click(function () {
+                $(".avatar-gallery").hide();
+                $(".gC-avatarname").removeClass("name-check");
+            });
+
+            $(".mychoice").hover(function () {
+                $(this).children(".gC-avatarname").css("font-weight", "800");
+                $(this).children(".gC-avatar").css("box-shadow", "0 0 20px 0 rgba(0, 0, 0, 0.664)");
+            }, function () {
+                $(this).children(".gC-avatarname").css("font-weight", "600");
+                $(this).children(".gC-avatar").css("box-shadow", "none");
+            });
+
+            $(".img-check").click(function (e) {
+                $(".img-check").not(this).removeClass("check")
+                    .siblings("input").prop("checked", false);
+                $(this).addClass("check")
+                    .siblings("input").prop("checked", true);
+                $(".gC-avatarname").removeClass("name-check");
+                $(this).parent(".mychoice").children(".gC-avatarname").addClass("name-check");
+            });
+
+            $(".btngC").hover(function () {
+                $(this).children(".gC-btn").css("font-weight", "900");
+            }, function () {
+                $(this).children(".gC-btn").css("font-weight", "600");
+            });
+
+            $(".profile-link").hover(function () {
+                $(this).children(".nav-img").css("box-shadow", "0px 0px 10px 2px white");
+                $(this).children(".profile-text").css("border-bottom", "1px solid white");
+            }, function () {
+                $(this).children(".nav-img").css("box-shadow", "none");
+                $(this).children(".profile-text").css("border-bottom", "none");
+            });
+
+            $(".body-background-notificationPassSuccess").hide();
+            $(".body-background-notificationPassFail").hide();
+            $(".body-background-notificationRetypePassword").hide();
+
+            $("#successAva-btn").click(function () {
+                $(".body-background-notificationAva").hide();
+            });
+            $("#successInfo-btn").click(function () {
+                $(".body-background-notificationInfo").hide();
+            });
+            $("#successPass-btn").click(function () {
+                $(".body-background-notificationPassSuccess").hide();
+            });
+            $("#failPass-btn").click(function () {
+                $(".body-background-notificationPassFail").hide();
+            });
+            $("#failRetype-btn").click(function () {
+                $(".body-background-notificationRetypePassword").hide();
+            });
+        })
+
+        $(".profile-text").css("color", "white");
+
+        // File ảnh
+        $(document).ready(function () {
+            var readURL = function (input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('.avatar').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $(".file-upload").on('change', function () {
+                readURL(this);
+            });
+        })
+
+        // Animation on click sidebar left
+        $(".user-setting-link").click(function () {
+            $("#btn-personal-information").parent(".list").removeClass("active-now");
+            $("#btn-order").parent(".list").removeClass("active-now");
+            $("#btn-order-history").parent(".list").removeClass("active-now");
+            $("#btn-change-password").parent(".list").removeClass("active-now");
+            $(this).parent(".list").addClass("active-now");
+        });
+
+        // Change password
+        function btnPassClick() {
+            // Create parameter
+            var oldpassword = $("#oldpassword").val();
+            var newpassword = $("#newpassword").val();
+            var retypepassword = $("#retypepassword").val();
+
+            // Compare new and retype password
+            if (newpassword != retypepassword) {
+                $(".body-background-notificationRetypePassword").show();
+            }
+            else {
+                // Final action
+                $.post("/profile/change-password",
+                    {
+                        old: oldpassword,
+                        new: newpassword,
+                        retype: retypepassword
+                    },
+                    function (result) {
+                        if (result === "Success") {
+                            $("#oldpassword").val("");
+                            $("#newpassword").val("");
+                            $("#retypepassword").val("");
+                            $(".body-background-notificationPassSuccess").show();
+                        } else {
+                            $(".body-background-notificationPassFail").show();
+                        }
+                    });
+            }
+        }
+
+        $(document).ready(function () {
+            $("#retypepassword").keypress(function (event) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '13') {
+                    btnPassClick();
+                }
+            });
+
+            $("#btn-pass").click(function () {
+                btnPassClick();
+            });
+
+            $("#btn-order-history").click(function () {
+                $.get("/profile/order-history", function (result) {
+                })
+            });
+        })
+    </script>
+    <!-- arrow function -->
+</body>
+
+</html>

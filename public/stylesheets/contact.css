@@ -1,0 +1,179 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Nunito', serif !important;
+    font-size: 10pt !important;
+}
+
+.navbar-brand {
+    font-weight: 800;
+}
+
+.nav-link:hover {
+    border-bottom: 1px solid white;
+    padding-bottom: 7px;
+}
+
+.form-inline {
+    font-size: 10pt !important;
+}
+
+.container {
+    padding: 20px 0px;
+    color: white;
+}
+
+.footer-title {
+    font-size: 10pt !important;
+    font-weight: 700;
+    list-style-type: none;
+}
+
+.bullets {
+    text-decoration: none;
+    font-weight: 200;
+    padding: 2px 4px;
+    margin-bottom: 2px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #d9d9d9;
+}
+
+.footer-link:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.body-background {
+    background-image: url("../img/background/bg_contact.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.body-background-notification {
+    background-color: rgba(255, 255, 255, 0.692);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.body-background-notificationDone {
+    background-color: rgba(255, 255, 255, 0.692);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.container-notification {
+    position: absolute;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.664);
+    border-radius: 10px;
+    background-color: white;
+    background-position: center;
+    top: 200px;
+    left: 400px;
+    right: 400px;
+    padding: 20px 20px;
+    font-size: 12pt;
+    text-align: justify;
+    color: black;
+}
+
+.btnatr {
+    text-align: center;
+    background-color: black !important;
+    border: none !important;
+    width: 25% !important;
+    padding: 0 !important;
+}
+
+.btnatr:hover {
+    font-weight: 800;
+}
+
+.accept-btn {
+    padding: 3px 20px;
+}
+
+.contact-title {
+    padding-bottom: 60px;
+}
+
+.contact-title-name {
+    font-weight: 900;
+    font-size: 25pt;
+    text-align: center;
+}
+
+.contact-title-detail {
+    font-weight: 600;
+    font-size: 16pt;
+    text-align: center;
+}
+
+.contact-sendinfo {
+    font-weight: 600;
+    font-size: 12pt;
+    padding-bottom: 20px;
+}
+
+.checkbox {
+    padding-left: 10px;
+    margin-bottom: 3px;
+}
+
+.checkbox label {
+    font-weight: 400;
+    font-size: 14pt;
+}
+
+.checkbox-icon {
+    margin-right: 3px;
+}
+
+.contact-buttonsend {
+    font-weight: 900;
+    font-size: 16pt;
+    text-align: center;
+}
+
+.btn-primary {
+    width: 50%;
+    font-weight: 700 !important;
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid black !important; 
+    border-radius: 10px !important;
+}
+
+.btn-primary:hover {
+    background-color: black !important;
+    color: white !important;
+}
