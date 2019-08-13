@@ -1,4 +1,4 @@
-# Template
+# Template1
 Ensure following items are covered:
 
 1. Branch name and PR title contain current JIRA tiket and its parent ticket in format `....`
